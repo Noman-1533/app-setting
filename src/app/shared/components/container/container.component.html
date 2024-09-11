@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="sidebar">
+      <span class="label">{{ settingLabel }}</span>
+      <span class="sub-label">{{ settingSubLabel }}</span>
+    </div>
+    <div class="setting-options" *ngIf="!isEmpty(settings)">
+      <span
+        *ngFor="
+          let settingOption of settingService.getSettings(settings, settingName)
+        "
+        >{{ createObjectTypeOption(settings[settingName][settingOption]) }}
+        <div class="settings">
+          <app-setting-option
+            [label]="settingOptionObject.label"
+            [subLabel]="settingOptionObject.subLabel"
+            [options]="settingOptionObject.option"
+            [defaultOption]="settingOptionObject.default"
+          ></app-setting-option>
+        </div>
+        <hr />
+      </span>
+    </div>
+  </div>
+  <div class="btn"><app-button [label]="'Apply Changes'" (click)="onSaveSettings()"></app-button></div>
+</div>

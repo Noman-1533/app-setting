@@ -1,0 +1,11 @@
+<div class="single-setting">
+    <span class="setting-label">
+        <span class="label">{{settingLabel}}</span>
+        <span class="sub-label">{{settingSubLabel}}</span>
+    </span>
+    <select (change)="onOptionChanged()">
+        <option *ngFor="let option of settingOptions" [selected]="option === settingDefaultOption">
+          {{ option }}
+        </option>
+      </select>
+</div>

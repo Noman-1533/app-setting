@@ -1,3 +1,9 @@
-<span *ngFor="let singleSetting of getSettingsKeys()">
-  <app-container [label]="settingData[singleSetting].label" [subLabel]="settingData[singleSetting].subLabel" [settingsObject]="settingData"></app-container>
-</span>
+<nav>
+  <ul>
+    <li [ngClass]="{ 'active': currentTab === 'account' }" (click)="setTab('account')">Account</li>
+    <li [ngClass]="{ 'active': currentTab === 'setup' }" (click)="setTab('setup')">Set-Up</li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+

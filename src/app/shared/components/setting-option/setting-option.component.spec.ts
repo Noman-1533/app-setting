@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormFieldComponent } from './form-field.component';
+import { SettingOptionComponent } from './setting-option.component';
 
-describe('FormFieldComponent', () => {
-  let component: FormFieldComponent;
-  let fixture: ComponentFixture<FormFieldComponent>;
+describe('SettingOptionComponent', () => {
+  let component: SettingOptionComponent;
+  let fixture: ComponentFixture<SettingOptionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormFieldComponent ]
+      declarations: [ SettingOptionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormFieldComponent);
+    fixture = TestBed.createComponent(SettingOptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

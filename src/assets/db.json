@@ -1,5 +1,5 @@
 {
-    "settings":{
+   
     "general": {
         "label": "GENERAL ALERTS",
         "subLabel": "Receive an Email if this alerts are triggered",
@@ -160,5 +160,5 @@
             ]
         }
     }
-}
+
 }

@@ -20,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     SettingRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ]
 })
 export class SettingModule { }

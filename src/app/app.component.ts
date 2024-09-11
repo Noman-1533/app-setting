@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   }
   onClickSetting() {
     this.isHome = !this.isHome;
-    if (!this.isHome) this.router.navigate(['/setting']);
+    if (!this.isHome) this.router.navigate(['/setting/account']);
     else this.router.navigate(['']);
   }
 }

@@ -1,1 +1,3 @@
-<p>setup works!</p>
+<span *ngFor="let key of settingService.getSettingsKeys(settingData)">
+    <app-container [label]="settingData[key].label" [subLabel]="settingData[key].subLabel" [settingsObject]="settingData" [settingName]="key"></app-container>
+  </span>

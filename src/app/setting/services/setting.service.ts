@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { settingCategory } from 'src/app/shared/models/setting.model';
+import { settingCategory, singleSettingObject } from 'src/app/shared/models/setting.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,7 +9,14 @@ import { environment } from 'src/environments/environment';
 export class SettingService {
 
   constructor(private http:HttpClient) { }
-  getSettingData(){
-     return this.http.get<settingCategory>(`${environment.BASE_URL}/settings`)
+  getSettingData(endPoint:string){
+     return this.http.get<singleSettingObject>(`${environment.BASE_URL}/${endPoint}`)
+  }
+  getSettingsKeys(settingData:settingCategory){
+    return Object.keys(settingData);
+  }
+
+  getSettings(settingData:settingCategory,settingName:string){
+    return Object.keys(settingData[settingName]).filter(key=>key!=='label'&&key!=='subLabel');
   }
 }
