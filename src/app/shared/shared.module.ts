@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 import { ContainerComponent } from './components/container/container.component';
 import { SettingOptionComponent } from './components/setting-option/setting-option.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -11,6 +12,7 @@ import { SettingOptionComponent } from './components/setting-option/setting-opti
     ButtonComponent,
     ContainerComponent,
     SettingOptionComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule
@@ -18,6 +20,8 @@ import { SettingOptionComponent } from './components/setting-option/setting-opti
   exports:[
     ButtonComponent,
     ContainerComponent,
+    SettingOptionComponent,
+    HeaderComponent,
   ],
 })
 export class SharedModule { }

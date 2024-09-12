@@ -1,164 +1,19 @@
 {
-   
-    "general": {
-        "label": "GENERAL ALERTS",
-        "subLabel": "Receive an Email if this alerts are triggered",
-        "machineRelocation": {
-            "label": "Machine Relocated",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        },
-        "noCharge": {
-            "label": "No Charge Alert ",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        },
-        "noCommunication": {
-            "label": "No Communication",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "1 day",
-                "2 days",
-                "1 week",
-                "2 weeks"
-            ],
-            "default": "2 days"
-        },
-        "opportunityCharge": {
-            "label": "Opportunity Charge Alert",
-            "subLabel":"Triggered with some operation",
-            
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        },
-        "chargerError": {
-            "label": "Charger Error",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        },
-        "impactDetection": {
-            "label":"Impact Detected",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        },
-        "maintenanceReminder": {
-            "label": "Maintenance Reminder",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        }
-    },
-    "other": {
-        "label": "OTHER ALERTS",
-            "subLabel":"Only available for certain users",
-        "noServicePerformed": {
-            "label": "No Service performed",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        },
-        "serviceRequest": {
-            "label": "Service Request",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        },
-        "ABWTank": {
-            "label": "ABW Tank Empty",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "On",
-                "Off"
-            ],
-            "default": "On"
-        }
-    },
-    "lowUsage": {
-        "label": "LOW USAGE",
-            "subLabel":"Receive an email if machine is used a chosen threshold",
-        "daily": {
-            "label": "Daily",
-            "subLabel":"Set value lower than what you consider low",
-            "option": [
-                "1 hr",
-                "2 hr",
-                "3 hr"
-            ],
-            "default": "2 hr"
-        },
-        "weekly": {
-            "label": "Weekly",
-            "subLabel":"Set value lower than what you consider low",
-            "option": [
-                "14 hr",
-                "16 hr",
-                "18 hr"
-            ],
-            "default": "16 hr"
-        },
-        "monthly": {
-            "label": "Monthly",
-            "subLabel":"Set value lower than what you consider low",
-            "option": [
-                "30 hr",
-                "35 hr",
-                "40 hr"
-            ],
-            "default": "35 hr"
-        }
-    },
-    "reports": {
-        "label": "REPORTS",
-        "subLabel":"",
-        "machineRelocation": {
-            "label": "Machine Relocated",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "daily",
-                "weekly",
-                "monthly",
-                "yearly"
-            ],
-            "default": "weekly"
-        },
-        "noCommunication": {
-            "label": "No Communication",
-            "subLabel":"Triggered with some operation",
-            "option": [
-                "daily",
-                "weekly",
-                "monthly",
-                "yearly"
-            ]
-        }
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
     }
-
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }

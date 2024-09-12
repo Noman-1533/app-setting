@@ -33,7 +33,7 @@
 
         .sidebar,
         .settings {
-            padding: 0 3%;
+            padding: 0 2%;
         }
 
     }
@@ -54,7 +54,7 @@
         // align-self: center;
        margin: 2% auto;
     
-    //    gap: 2%;
+       gap: 0 !important;
         .wrapper {
             flex-direction: row !important;
 
@@ -64,7 +64,7 @@
 
             .setting-options {
                 width: 55% !important;
-                padding: 0 3%;
+                padding: 0 2%;
 
                 .settings {
                     padding: 0 !important;

@@ -1,21 +1,18 @@
 <div class="container">
-  <div class="wrapper">
+  <div class="wrapper" *ngFor="let setting of singleSettings,let i=index" [ngStyle]="{'background-color':settingName[i]==='others'?'rgb(248, 248, 248)':''}">
     <div class="sidebar">
-      <span class="label">{{ settingLabel }}</span>
-      <span class="sub-label">{{ settingSubLabel }}</span>
+      <span class="label">{{ setting.label }}</span>
+      <span class="sub-label">{{ setting.subLabel }}</span>
     </div>
-    <div class="setting-options" *ngIf="!isEmpty(settings)">
+    <div class="setting-options" *ngIf="!isEmpty(setting)">
       <span
         *ngFor="
-          let settingOption of settingService.getSettings(settings, settingName)
+          let settingOption of getSettings(setting)
         "
-        >{{ createObjectTypeOption(settings[settingName][settingOption]) }}
+        >{{ createObjectTypeOption(setting[settingOption]) }}
         <div class="settings">
           <app-setting-option
-            [label]="settingOptionObject.label"
-            [subLabel]="settingOptionObject.subLabel"
-            [options]="settingOptionObject.option"
-            [defaultOption]="settingOptionObject.default"
+            [settingOptionObject]="settingOptionObject"
           ></app-setting-option>
         </div>
         <hr />

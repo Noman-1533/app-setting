@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { settingCategory } from 'src/app/shared/models/setting.model';
+import { settingCategory, singleSettingObject } from 'src/app/shared/models/setting.model';
 import { SettingService } from '../../services/setting.service';
 import { forkJoin, Subscription } from 'rxjs';
 
@@ -11,16 +11,18 @@ import { forkJoin, Subscription } from 'rxjs';
 export class SetupComponent implements OnInit ,OnDestroy{
    settingKeys:string[]=[
     "general",
-    "other",
-    "lowUsage",
+    "others",
+    "low_usage",
     "reports"
   ];
   settingSubscription:Subscription=new Subscription();
   settingData:settingCategory={};
+  settingDataObjects:singleSettingObject[]=[];
   constructor(public settingService:SettingService) { }
 
   ngOnInit(): void {
-    this.fetchAllSettingsData()
+    this.fetchAllSettingsData();
+   
   }
   fetchAllSettingsData() {
     const requests = this.settingKeys.map(key =>
@@ -30,7 +32,10 @@ export class SetupComponent implements OnInit ,OnDestroy{
     this.settingSubscription = forkJoin(requests).subscribe((responses) => {
       responses.forEach((res, index) => {
         this.settingData[this.settingKeys[index]] = res;
+        // console.log(res);
+        this.settingDataObjects.push(res);
       });
+      // console.log(this.settingDataObjects)
     });
   }
 

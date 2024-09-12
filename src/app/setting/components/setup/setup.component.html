@@ -1,3 +1,9 @@
-<span *ngFor="let key of settingService.getSettingsKeys(settingData)">
-    <app-container [label]="settingData[key].label" [subLabel]="settingData[key].subLabel" [settingsObject]="settingData" [settingName]="key"></app-container>
-  </span>
+<!-- <span *ngFor="let key of settingService.getSettingsKeys(settingData)">
+    <app-container [singleSettingObject]="settingData[key]" [settingName]="key"></app-container>
+</span> -->
+
+<span *ngFor="let item of settingDataObjects,let i=index">
+
+    <app-container *ngIf="i>1"  [settingName]="[settingKeys[i]]" [singleSettings]="[item]" ></app-container>
+    <app-container *ngIf="i===1" [settingName]="[settingKeys[i-1],settingKeys[i]]" [singleSettings]="[settingDataObjects[i-1],settingDataObjects[i]]"></app-container>
+</span>

@@ -12,11 +12,16 @@ export class SettingService {
   getSettingData(endPoint:string){
      return this.http.get<singleSettingObject>(`${environment.BASE_URL}/${endPoint}`)
   }
+  setSettingData(endPoint:string,settingObject:singleSettingObject){
+    return this.http.post<singleSettingObject>(`${environment.BASE_URL}/${endPoint}`,settingObject);
+  }
   getSettingsKeys(settingData:settingCategory){
     return Object.keys(settingData);
   }
 
-  getSettings(settingData:settingCategory,settingName:string){
-    return Object.keys(settingData[settingName]).filter(key=>key!=='label'&&key!=='subLabel');
+  getSettings(singleSettingObject:singleSettingObject){
+    // console.log(settingName)
+    return Object.keys(singleSettingObject).filter(key=>key!=='label'&&key!=='subLabel');
+    // return Object.keys(settingData[settingName]).filter(key=>key!=='label'&&key!=='subLabel');
   }
 }

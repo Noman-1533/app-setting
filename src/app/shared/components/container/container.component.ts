@@ -8,20 +8,18 @@ import { SettingService } from 'src/app/setting/services/setting.service';
   styleUrls: ['./container.component.scss']
 })
 export class ContainerComponent implements OnInit {
-  @Input('label')settingLabel:string='';
-  @Input('subLabel')settingSubLabel:string='';
-  @Input('settingsObject')settings:settingCategory={}
-  @Input()settingName:string='';
+  @Input()singleSettingObject:singleSettingObject={label:'',subLabel:''};
+  @Input()settingName:string[]=[];
+  @Input()singleSettings:singleSettingObject[]=[];
   settingOptionObject:singleSettingOption={
     label:'',
     subLabel:'',
     default:'',
     option:[]
   };
-  constructor(public settingService:SettingService) { }
+  constructor(private settingService:SettingService) { }
 
   ngOnInit(): void {
-   
   }
   createObjectTypeOption(item:singleSettingOption|string){
     if(typeof item !=='string'){
@@ -29,11 +27,20 @@ export class ContainerComponent implements OnInit {
     }
      
   }
-  isEmpty(obj:settingCategory){
+  isEmpty(obj:singleSettingObject){
     return Object.keys(obj).length === 0
   }
 
   onSaveSettings(){
-    console.log(this.settings)
+   
+    let i=0;
+    for(let setting of this.singleSettings){
+    let response =this.settingService.setSettingData(this.settingName[i],setting);
+    response.subscribe((res)=>{console.log(res)})
+    i++;
+  }
+  }
+  getSettings(singleSettingObject:singleSettingObject){
+    return this.settingService.getSettings(singleSettingObject)
   }
 }
