@@ -35,7 +35,12 @@ export class ContainerComponent implements OnInit {
    
     let i=0;
     for(let setting of this.singleSettings){
-    let response =this.settingService.setSettingData(this.settingName[i],setting);
+      console.log(setting)
+      let name=this.settingName[i];
+      let updatedSetting:settingCategory={
+        [name]:setting
+      }
+    let response =this.settingService.setSettingData(this.settingName[i],updatedSetting);
     response.subscribe((res)=>{console.log(res)})
     i++;
   }

@@ -10,10 +10,10 @@ export class SettingService {
 
   constructor(private http:HttpClient) { }
   getSettingData(endPoint:string){
-     return this.http.get<singleSettingObject>(`${environment.BASE_URL}/${endPoint}`)
+     return this.http.get<settingCategory>(`${environment.BASE_URL}/${endPoint}`)
   }
-  setSettingData(endPoint:string,settingObject:singleSettingObject){
-    return this.http.post<singleSettingObject>(`${environment.BASE_URL}/${endPoint}`,settingObject);
+  setSettingData(endPoint:string,settingObject:settingCategory){
+    return this.http.patch<singleSettingObject>(`${environment.BASE_URL}/data`,settingObject,{ headers: { 'Content-Type': 'application/json' } });
   }
   getSettingsKeys(settingData:settingCategory){
     return Object.keys(settingData);

@@ -2,8 +2,8 @@
     <app-container [singleSettingObject]="settingData[key]" [settingName]="key"></app-container>
 </span> -->
 
-<span *ngFor="let item of settingDataObjects,let i=index">
+<span *ngFor="let key of settingKeys,let i=index">
 
-    <app-container *ngIf="i>1"  [settingName]="[settingKeys[i]]" [singleSettings]="[item]" ></app-container>
-    <app-container *ngIf="i===1" [settingName]="[settingKeys[i-1],settingKeys[i]]" [singleSettings]="[settingDataObjects[i-1],settingDataObjects[i]]"></app-container>
+    <app-container *ngIf="i>1"  [settingName]="[settingKeys[i]]" [singleSettings]="[settingData[key]]" ></app-container>
+    <app-container *ngIf="i===1" [settingName]="[settingKeys[i-1],settingKeys[i]]" [singleSettings]="[settingData[settingKeys[i-1]],settingData[settingKeys[i]]]"></app-container>
 </span>

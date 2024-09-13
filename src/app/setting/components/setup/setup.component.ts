@@ -10,10 +10,7 @@ import { forkJoin, Subscription } from 'rxjs';
 })
 export class SetupComponent implements OnInit ,OnDestroy{
    settingKeys:string[]=[
-    "general",
-    "others",
-    "low_usage",
-    "reports"
+    
   ];
   settingSubscription:Subscription=new Subscription();
   settingData:settingCategory={};
@@ -25,18 +22,22 @@ export class SetupComponent implements OnInit ,OnDestroy{
    
   }
   fetchAllSettingsData() {
-    const requests = this.settingKeys.map(key =>
-      this.settingService.getSettingData(key)
-    );
+    // const requests = this.settingKeys.map(key =>
+    //   this.settingService.getSettingData(key)
+    // );
 
-    this.settingSubscription = forkJoin(requests).subscribe((responses) => {
-      responses.forEach((res, index) => {
-        this.settingData[this.settingKeys[index]] = res;
-        // console.log(res);
-        this.settingDataObjects.push(res);
-      });
-      // console.log(this.settingDataObjects)
-    });
+    // this.settingSubscription = forkJoin(requests).subscribe((responses) => {
+    //   responses.forEach((res, index) => {
+    //     this.settingData[this.settingKeys[index]] = res;
+    //     // console.log(res);
+    //     this.settingDataObjects.push(res);
+    //   });
+    //   // console.log(this.settingDataObjects)
+    // });
+    this.settingSubscription=this.settingService.getSettingData('data').subscribe((res)=>{
+      this.settingData=res;
+      this.settingKeys=this.settingService.getSettingsKeys(this.settingData);
+    })
   }
 
   ngOnDestroy(): void {
