@@ -12,3 +12,7 @@ export interface singleSettingObject{
 export interface settingCategory{
     [categoryName:string]:singleSettingObject 
 }
+export interface settings{
+    [categoryName:string]:settingCategory 
+}
+

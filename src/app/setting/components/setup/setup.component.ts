@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { settingCategory, singleSettingObject } from 'src/app/shared/models/setting.model';
+import { settingCategory, settings, singleSettingObject } from 'src/app/shared/models/setting.model';
 import { SettingService } from '../../services/setting.service';
 import { forkJoin, Subscription } from 'rxjs';
 
@@ -12,8 +12,12 @@ export class SetupComponent implements OnInit ,OnDestroy{
    settingKeys:string[]=[
     
   ];
+   settingKeys2:string[]=[
+    
+  ];
   settingSubscription:Subscription=new Subscription();
   settingData:settingCategory={};
+  settingData2:settings={};
   settingDataObjects:singleSettingObject[]=[];
   constructor(public settingService:SettingService) { }
 
@@ -22,22 +26,17 @@ export class SetupComponent implements OnInit ,OnDestroy{
    
   }
   fetchAllSettingsData() {
-    // const requests = this.settingKeys.map(key =>
-    //   this.settingService.getSettingData(key)
-    // );
-
-    // this.settingSubscription = forkJoin(requests).subscribe((responses) => {
-    //   responses.forEach((res, index) => {
-    //     this.settingData[this.settingKeys[index]] = res;
-    //     // console.log(res);
-    //     this.settingDataObjects.push(res);
-    //   });
-    //   // console.log(this.settingDataObjects)
-    // });
+   
     this.settingSubscription=this.settingService.getSettingData('data').subscribe((res)=>{
       this.settingData=res;
       this.settingKeys=this.settingService.getSettingsKeys(this.settingData);
     })
+    this.settingService.getSettingData2('data2').subscribe((res)=>{
+     
+       this.settingData2=res;
+      this.settingKeys2=this.settingService.getSettingsKeys(this.settingData2);
+     
+    });
   }
 
   ngOnDestroy(): void {

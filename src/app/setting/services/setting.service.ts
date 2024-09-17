@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { settingCategory, singleSettingObject } from 'src/app/shared/models/setting.model';
+import { settingCategory, settings, singleSettingObject } from 'src/app/shared/models/setting.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,10 +12,14 @@ export class SettingService {
   getSettingData(endPoint:string){
      return this.http.get<settingCategory>(`${environment.BASE_URL}/${endPoint}`)
   }
-  setSettingData(endPoint:string,settingObject:settingCategory){
-    return this.http.patch<singleSettingObject>(`${environment.BASE_URL}/data`,settingObject,{ headers: { 'Content-Type': 'application/json' } });
+  getSettingData2(endPoint:string){
+     return this.http.get<settings>(`${environment.BASE_URL}/${endPoint}`)
   }
-  getSettingsKeys(settingData:settingCategory){
+
+  setSettingData(endPoint:string,settingObject:settings){
+    return this.http.patch<singleSettingObject>(`${environment.BASE_URL}/data2`,settingObject,{ headers: { 'Content-Type': 'application/json' } });
+  }
+  getSettingsKeys(settingData:settingCategory|singleSettingObject|settings){
     return Object.keys(settingData);
   }
 

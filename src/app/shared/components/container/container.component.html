@@ -11,9 +11,10 @@
         "
         >{{ createObjectTypeOption(setting[settingOption]) }}
         <div class="settings">
-          <app-setting-option
+          <app-setting-option *ngIf="settingName[i]!=='email'"
             [settingOptionObject]="settingOptionObject"
           ></app-setting-option>
+          <app-custom-chips *ngIf="settingName[i]==='email'" [chips]="emails.email"></app-custom-chips>
         </div>
         <hr />
       </span>
